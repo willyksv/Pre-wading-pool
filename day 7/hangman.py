@@ -5,14 +5,6 @@ https://stackoverflow.com/questions/4859292/how-can-i-get-a-random-key-value-pai
 https://www.geeksforgeeks.org/python/python-replace-to-k-at-ith-index-in-string/
 """
 
-
-
-
-
-hp = 12 
-if hp >= 12:
-    print("loose")
-
 import random
 import english_words
 
@@ -22,6 +14,14 @@ word = random.choice(list(web2lowerset))
 number_of_character = len(str(word))
 print(word)
 # print(number_of_character)
+
+hp=12 
+win=0
+print(hp)
+def loose(hp):
+    if hp < 1:
+        print("game over")
+        
 
 def number_to_guess(word):
     hidden = ""
@@ -56,12 +56,34 @@ def replace_blank(hidden):
     return hidden
 
 
-while hp >= 12:
+while win ==0:
 # letter= "a"
     guess = input("enter a letter or a word:")
     if len(guess) == 1:
         letter = guess
         idx = trouve_index()
+        # print(idx)
+        if idx == []:
+            print("no")
+            hp = hp -1
+            print(hp)
+            loose(hp)
+            if hp < 1:
+                break
         hidden = replace_blank(hidden)
         print(hidden)
+        if "_" not in hidden:
+            win = 1
+            print("you win")
+    else: 
+        if guess == word:
+            win = 1
+            print("you win")
+        hp = hp - 6
+        print(hp)
+        loose(hp)
+        if hp < 1:
+            break
+
+
 
