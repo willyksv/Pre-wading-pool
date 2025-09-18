@@ -17,7 +17,7 @@ print(word)
 
 hp=12 
 win=0
-print(hp)
+# print(hp)
 def loose(hp):
     if hp < 1:
         print("game over")
@@ -30,7 +30,7 @@ def number_to_guess(word):
     hidden = hidden + "_." #au moment de sortir de la boucle
     return hidden #vu que c'est une variable locale elle existe uniquement dans ma fonction number_to_guess donc j'utilise un return pour la faire sortir
 hidden = number_to_guess(word)
-print(hidden)
+print(hidden,"     ","hp",hp)
 
 def trouve_index():
     index = -1
@@ -66,12 +66,12 @@ while win ==0:
         if idx == []:
             print("no")
             hp = hp -1
-            print(hp)
+            # print(hp)
             loose(hp)
             if hp < 1:
                 break
         hidden = replace_blank(hidden)
-        print(hidden)
+        print(hidden,"     ","hp:",hp)
         if "_" not in hidden:
             win = 1
             print("you win")
