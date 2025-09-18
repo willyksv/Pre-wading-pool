@@ -9,7 +9,7 @@ https://www.geeksforgeeks.org/python/python-replace-to-k-at-ith-index-in-string/
 
 
 
-hp = 11 
+hp = 12 
 if hp >= 12:
     print("loose")
 
@@ -32,19 +32,15 @@ def number_to_guess(word):
 hidden = number_to_guess(word)
 print(hidden)
 
-print(len(hidden))
-
-letter= "a"
 def trouve_index():
     index = -1
     idx = []
     for i in word:
         if i == letter:
-            index = word.find("a",index+1)
+            index = word.find(letter,index+1)
             idx.append(int(index *2))
     return idx
-idx = trouve_index()
-print(idx)
+
 
 def replace_blank(hidden):
     for i in range(len(hidden)):
@@ -57,5 +53,15 @@ def replace_blank(hidden):
                 hidden = hidden[:i]+ letter + hidden[i+1:]            
         else:
             hidden
-        return hidden
-print(replace_blank(hidden))
+    return hidden
+
+
+while hp >= 12:
+# letter= "a"
+    guess = input("enter a letter or a word:")
+    if len(guess) == 1:
+        letter = guess
+        idx = trouve_index()
+        hidden = replace_blank(hidden)
+        print(hidden)
+
