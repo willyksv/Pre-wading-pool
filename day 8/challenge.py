@@ -100,3 +100,21 @@ if __name__ == '__main__':
         T.getscreen().getcanvas().postscript(file=args.figure)
 
     T.exitonclick()
+
+
+
+# test
+# import turtle
+# t= turtle.turtle()
+
+# def cote(l,n):
+#   if n == 0:
+#     forward(l)
+#   else:
+#     cote(...,n-1)
+#     left(...)
+#     cote(...,n-1)
+#     right(...)
+#     cote(...,n-1)
+#     left(...)
+#     cote(...,n-1)
