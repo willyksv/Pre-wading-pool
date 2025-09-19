@@ -6,7 +6,7 @@ https://www.geeksforgeeks.org/python/python-replace-to-k-at-ith-index-in-string/
 """
 
 import random
-import english_words
+
 
 from english_words import(get_english_words_set)
 web2lowerset = get_english_words_set(['web2'], lower=True)
@@ -20,17 +20,18 @@ win=0
 # print(hp)
 def loose(hp):
     if hp < 1:
-        print("game over")
+        print("game over","     ","hp:0",)
         
 
 def number_to_guess(word):
-    hidden = ""
-    for character in range(number_of_character - 1): #juste par soucis de presentation pour pouvoir ajouter le "_."
-        hidden = "_ " + hidden
-    hidden = hidden + "_." #au moment de sortir de la boucle
-    return hidden #vu que c'est une variable locale elle existe uniquement dans ma fonction number_to_guess donc j'utilise un return pour la faire sortir
+    h = ""
+    for character in range(number_of_character): #juste par soucis de presentation pour pouvoir ajouter le "_."
+        h = "_ " + h
+    h = h + "." #au moment de sortir de la boucle
+    return h #vu que c'est une variable locale elle existe uniquement dans ma fonction number_to_guess donc j'utilise un return pour la faire sortir
+
 hidden = number_to_guess(word)
-print(hidden,"     ","hp",hp)
+print(hidden,"     ","hp:",hp)
 
 def trouve_index():
     index = -1
@@ -77,13 +78,19 @@ while win ==0:
             print("you win")
     else: 
         if guess == word:
-            win = 1
+            for i in guess:
+                letter = i
+                idx = trouve_index()
+                hidden = replace_blank(hidden)
+            print(hidden,"     ","hp:",hp)
             print("you win")
-        hp = hp - 6
-        print(hp)
-        loose(hp)
-        if hp < 1:
-            break
+            win =1
+        else:
+            hp = hp - 6
+            print(hidden,"     ","hp:",hp)
+            loose(hp)
+            if hp < 1:
+                break
 
 
 

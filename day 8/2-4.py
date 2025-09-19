@@ -5,7 +5,7 @@ https://zestedesavoir.com/tutoriels/944/a-la-decouverte-de-turtle/tracer-et-dess
 
 """
 import turtle
-
+turtle.speed(0)
 turtle.shape ('turtle') #affiche le curseur en forme de tortue
 
 a = 1   #StartingAngle
